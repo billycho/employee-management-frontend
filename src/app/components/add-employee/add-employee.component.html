@@ -1,0 +1,26 @@
+<div *ngIf="submitted">
+    <h4>Employee Added!</h4>
+</div>
+<form class="detail-form">
+
+    <mat-form-field class="detail-full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="employee.first_name" name="first_name" required>
+    </mat-form-field>
+    <mat-form-field class="detail-full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="employee.last_name" name="last_name" required>
+    </mat-form-field>
+    <mat-form-field class="detail-full-width">
+        <mat-label>Age</mat-label>
+        <input type="number" matInput [(ngModel)]="employee.age" name="age" required>
+    </mat-form-field>
+    <mat-form-field class="detail-full-width">
+        <mat-label>Phone Number</mat-label>
+        <input matInput [(ngModel)]="employee.phone_number" name="phone_number" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="saveEmployee()">Submit</button>&nbsp;
+
+</form>
+<br />
+<a mat-raised-button color="primary" routerLink="/">Back</a>

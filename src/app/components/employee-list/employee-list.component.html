@@ -1,0 +1,49 @@
+<div><a mat-raised-button color="primary" routerLink="/add">Add Employee</a>&nbsp; <button mat-raised-button
+        color="primary" (click)="removeAllEmployees()">Remove all employees</button>&nbsp;
+</div>
+
+
+<mat-form-field style="width:60%;">
+    <mat-label>Search Employee</mat-label>
+    <input matInput name="title" [(ngModel)]="title" (input)="searchTitle()">
+</mat-form-field>
+<!-- <button mat-raised-button color="primary" (click)="updateEmployee()">Search</button>&nbsp; -->
+
+<div class="flex-container">
+    <table id="users">
+        <tr>
+            <th *ngFor="let column of headers">
+                {{column}}
+            </th>
+        </tr>
+
+        <tr *ngFor="let row of employees">
+            <td (click)="setActiveEmployee(row)"> {{ row.first_name }} </td>
+            <td> {{ row.last_name }} </td>
+            <td> {{ row.age }} </td>
+            <td> {{ row.phone_number }}</td>
+            <td><a mat-raised-button color="primary" routerLink="/employees/{{row.id}}">Detail</a></td>
+        </tr>
+
+    </table>
+
+    <table id="users" class="currentEmployee" *ngIf="currentEmployee">
+
+        <tr>
+            <td> First Name: {{ currentEmployee.first_name }}</td>
+        </tr>
+
+        <tr>
+            <td> Last Name: {{ currentEmployee.last_name }}</td>
+        </tr>
+
+        <tr>
+            <td> Age: {{ currentEmployee.age }}</td>
+        </tr>
+
+        <tr>
+            <td> Phone Number: {{ currentEmployee.phone_number }}</td>
+        </tr>
+    </table>
+
+</div>

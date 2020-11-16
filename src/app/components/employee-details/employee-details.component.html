@@ -1,0 +1,33 @@
+<p>{{ message }}</p>
+<form class="detail-form">
+
+    <mat-form-field class="detail-full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="currentEmployee.first_name" name="first_name">
+    </mat-form-field>
+    <mat-form-field class="detail-full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="currentEmployee.last_name" name="last_name">
+    </mat-form-field>
+    <mat-form-field class="detail-full-width">
+        <mat-label>Age</mat-label>
+        <input type="number" matInput [(ngModel)]="currentEmployee.age" name="age">
+    </mat-form-field>
+    <mat-form-field class="detail-full-width">
+        <mat-label>Phone Number</mat-label>
+        <input matInput [(ngModel)]="currentEmployee.phone_number" name="phone_number">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="updateEmployee()">Update</button>&nbsp;
+    <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
+   
+</form>
+<br />
+<button mat-raised-button color="warn" *ngIf="emailSent" (click)="updateEmailStatus()">
+    Email Sent
+</button>
+<button mat-raised-button color="warn" *ngIf="!emailSent" (click)="updateEmailStatus()">
+    Email Pending
+</button>
+<br /><br />
+<a mat-raised-button color="primary" routerLink="/">Back</a>
